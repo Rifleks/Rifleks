@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" width="100%" height="100%">
+  <defs>
+    <linearGradient id="neon-gradient" x1="0%" y1="0%" x2="200%" y2="200%">
+      <stop offset="0%" stop-color="#00f2fe">
+        <animate attributeName="stop-color" values="#00f2fe;#4facfe;#ff007f;#00f2fe" dur="6s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#7b2cbf">
+        <animate attributeName="stop-color" values="#7b2cbf;#ff0844;#4facfe;#7b2cbf" dur="6s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#ff007f">
+        <animate attributeName="stop-color" values="#ff007f;#00f2fe;#7b2cbf;#ff007f" dur="6s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="14" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <style>
+      .floating-group {
+        animation: float 4s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-7px) rotate(0.4deg); }
+      }
+
+      .glow-bg {
+        fill: url(#neon-gradient);
+        opacity: 0.35;
+        filter: url(#glow);
+        animation: pulse 4s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 0.25; transform: scale(0.98); }
+        50% { opacity: 0.55; transform: scale(1.02); }
+      }
+
+      .cyber-line {
+        stroke: url(#neon-gradient);
+        stroke-width: 3;
+        stroke-linecap: round;
+        animation: expand 3s ease-in-out infinite alternate;
+      }
+
+      @keyframes expand {
+        0% { stroke-dasharray: 50, 400; stroke-dashoffset: 0; }
+        100% { stroke-dasharray: 300, 400; stroke-dashoffset: -50; }
+      }
+
+      .particle {
+        fill: #00f2fe;
+        animation: sparkle 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes sparkle {
+        0% { opacity: 0.2; transform: scale(0.8); }
+        100% { opacity: 1; transform: scale(1.3); }
+      }
+    </style>
+  </defs>
+  <circle cx="120" cy="40" r="2" class="particle" style="animation-delay: 0.2s;" />
+  <circle cx="680" cy="50" r="3" class="particle" style="animation-delay: 0.7s; fill: #ff007f;" />
+  <circle cx="160" cy="170" r="2.5" class="particle" style="animation-delay: 1.2s; fill: #7b2cbf;" />
+  <circle cx="640" cy="160" r="2" class="particle" style="animation-delay: 0.5s;" />
+  <g transform="translate(400, 95)" text-anchor="middle" dominant-baseline="central" font-family="'Impact', 'Arial Black', sans-serif" font-size="82" font-weight="900">
+    <g class="floating-group">
+      <text x="0" y="0" class="glow-bg">RIFLEKS</text>
+      <text x="-9" y="9" fill="#05050a">RIFLEKS</text>
+      <text x="-8" y="8" fill="#0a0a14">RIFLEKS</text>
+      <text x="-7" y="7" fill="#101020">RIFLEKS</text>
+      <text x="-6" y="6" fill="#15152b">RIFLEKS</text>
+      <text x="-5" y="5" fill="#1b1b37">RIFLEKS</text>
+      <text x="-4" y="4" fill="#212144">RIFLEKS</text>
+      <text x="-3" y="3" fill="#282852">RIFLEKS</text>
+      <text x="-2" y="2" fill="#2f2f60">RIFLEKS</text>
+      <text x="-1" y="1" fill="#36366e">RIFLEKS</text>
+      <text x="0" y="0" fill="url(#neon-gradient)" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.7">RIFLEKS</text>
+    </g>
+  </g>
+  <line x1="200" y1="170" x2="600" y2="170" class="cyber-line" />
+  <path d="M 160 65 L 145 65 L 145 125 L 160 125" fill="none" stroke="#00f2fe" stroke-width="3" opacity="0.8" />
+  <path d="M 640 65 L 655 65 L 655 125 L 640 125" fill="none" stroke="#ff007f" stroke-width="3" opacity="0.8" />
+</svg>

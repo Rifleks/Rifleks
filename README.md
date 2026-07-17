@@ -1,3 +1,3 @@
 <p align="center">
-  <img src="rifleks.svg" alt="Rifleks" />
+  <img src="Rifleks.svg" alt="Rifleks" />
 </p>

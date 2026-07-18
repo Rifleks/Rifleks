@@ -220,19 +220,19 @@
 
   <g transform="translate(400, 110)" text-anchor="middle" dominant-baseline="central" font-family="'Impact', 'Arial Black', sans-serif" font-size="86" font-weight="900" letter-spacing="3">
     <g class="text-container">
-      <text x="-10" y="10" fill="#05050a" opacity="0.9">RIFLEKS</text>
-      <text x="-8" y="8" fill="#0a0a18" opacity="0.8">RIFLEKS</text>
-      <text x="-6" y="6" fill="#12122a" opacity="0.7">RIFLEKS</text>
-      <text x="-4" y="4" fill="#1a1a3a" opacity="0.6">RIFLEKS</text>
-      <text x="-2" y="2" fill="#22224a" opacity="0.5">RIFLEKS</text>
+      <text x="-10" y="10" fill="#05050a" opacity="0.9">Rifleks</text>
+      <text x="-8" y="8" fill="#0a0a18" opacity="0.8">Rifleks</text>
+      <text x="-6" y="6" fill="#12122a" opacity="0.7">Rifleks</text>
+      <text x="-4" y="4" fill="#1a1a3a" opacity="0.6">Rifleks</text>
+      <text x="-2" y="2" fill="#22224a" opacity="0.5">Rifleks</text>
       
-      <text x="0" y="0" fill="url(#neon-gradient)" stroke="#ffffff" stroke-width="2" stroke-opacity="0.5" class="glow-layer">RIFLEKS</text>
+      <text x="0" y="0" fill="url(#neon-gradient)" stroke="#ffffff" stroke-width="2" stroke-opacity="0.5" class="glow-layer">Rifleks</text>
       
-      <text x="0" y="0" fill="none" stroke="url(#text-glow)" stroke-width="1.5" opacity="0.8" filter="url(#glow-strong)">RIFLEKS</text>
+      <text x="0" y="0" fill="none" stroke="url(#text-glow)" stroke-width="1.5" opacity="0.8" filter="url(#glow-strong)">Rifleks</text>
       
-      <text x="0" y="0" fill="url(#text-glow)" class="extreme-glow">RIFLEKS</text>
+      <text x="0" y="0" fill="url(#text-glow)" class="extreme-glow">Rifleks</text>
       
-      <text x="0" y="0" fill="#ffffff" opacity="0.08">RIFLEKS</text>
+      <text x="0" y="0" fill="#ffffff" opacity="0.08">Rifleks</text>
     </g>
   </g>
 
@@ -258,7 +258,7 @@
     <tspan>while True:</tspan>
   </text>
   <text x="210" y="216" font-family="'Courier New', monospace" font-size="11" fill="#00f2fe" opacity="0.35">
-    <tspan>print('Rifleks')</tspan>
+    <tspan>print('чт ')</tspan>
     <tspan class="typing-cursor" fill="#ff007f">_</tspan>
   </text>
 
@@ -266,7 +266,7 @@
     <tspan>class Developer:</tspan>
   </text>
   <text x="560" y="216" font-family="'Courier New', monospace" font-size="11" fill="#ff007f" opacity="0.3">
-    <tspan>pass  # forever</tspan>
+    <tspan>pass  # пупупу</tspan>
   </text>
 
   <text x="0" y="12" font-family="'Courier New', monospace" font-size="14" fill="#00f2fe" opacity="0.15" class="bracket" style="animation-delay: 0s;">{</text>

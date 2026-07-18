@@ -15,82 +15,73 @@
       <feGaussianBlur stdDeviation="20" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
-
     <filter id="glow-light" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur stdDeviation="6" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
-
-    <filter id="glow-snake" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="8" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
     <style>
       .floating-group {
         animation: float 5s ease-in-out infinite;
       }
-
       @keyframes float {
         0%, 100% { transform: translateY(0px) rotate(0deg); }
         50% { transform: translateY(-8px) rotate(0.5deg); }
       }
-
       .glow-bg {
         fill: url(#neon-gradient);
         opacity: 0.3;
         filter: url(#glow-heavy);
         animation: pulse 4s ease-in-out infinite;
       }
-
       @keyframes pulse {
         0%, 100% { opacity: 0.2; transform: scale(0.97); }
         50% { opacity: 0.6; transform: scale(1.03); }
       }
-
       .cyber-line {
         stroke: url(#neon-gradient);
         stroke-width: 2.5;
         stroke-linecap: round;
         animation: expand 3.5s ease-in-out infinite alternate;
       }
-
       @keyframes expand {
         0% { stroke-dasharray: 40, 400; stroke-dashoffset: 0; }
         100% { stroke-dasharray: 350, 400; stroke-dashoffset: -60; }
       }
-
       .particle {
         animation: sparkle 2.5s ease-in-out infinite alternate;
       }
-
       @keyframes sparkle {
         0% { opacity: 0.1; transform: scale(0.6); }
         100% { opacity: 1; transform: scale(1.4); }
       }
-
-      .snake-body {
-        animation: snakeSlide 7s ease-in-out infinite;
+      .code-rain {
+        animation: rain 4s linear infinite;
       }
-
-      @keyframes snakeSlide {
-        0% { transform: translateX(-10px); }
-        50% { transform: translateX(10px); }
-        100% { transform: translateX(-10px); }
+      @keyframes rain {
+        0% { transform: translateY(-20px); opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { transform: translateY(20px); opacity: 0; }
       }
-
-      .snake-eye {
-        animation: eyeGlow 1.2s ease-in-out infinite alternate;
+      .typing-cursor {
+        animation: blink 1s step-end infinite;
       }
-
-      @keyframes eyeGlow {
-        0% { fill: #ff007f; filter: url(#glow-light); }
-        100% { fill: #00f2fe; filter: url(#glow-light); }
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+      .bracket {
+        animation: bracketPulse 2s ease-in-out infinite;
+      }
+      @keyframes bracketPulse {
+        0%, 100% { opacity: 0.3; transform: scale(1); }
+        50% { opacity: 0.8; transform: scale(1.1); }
       }
     </style>
   </defs>
 
-  <rect width="800" height="220" fill="#0a0a14" rx="16" />
-  <rect width="800" height="220" fill="url(#neon-gradient)" opacity="0.04" rx="16" />
+  <rect width="800" height="220" fill="transparent" rx="16" />
+  <rect width="800" height="220" fill="url(#neon-gradient)" opacity="0.03" rx="16" />
 
   <circle cx="80" cy="30" r="2.5" class="particle" style="animation-delay: 0.2s; fill: #00f2fe;" />
   <circle cx="720" cy="40" r="3.5" class="particle" style="animation-delay: 0.7s; fill: #ff007f;" />
@@ -100,19 +91,22 @@
   <circle cx="750" cy="110" r="2" class="particle" style="animation-delay: 0.9s; fill: #ff6b6b;" />
   <circle cx="400" cy="15" r="2" class="particle" style="animation-delay: 2.1s; fill: #4facfe;" />
 
+  <text x="35" y="36" font-family="'Courier New', monospace" font-size="12" fill="#00f2fe" opacity="0.25" class="code-rain" style="animation-delay: 0s;">print()</text>
+  <text x="60" y="42" font-family="'Courier New', monospace" font-size="10" fill="#ff007f" opacity="0.2" class="code-rain" style="animation-delay: 0.8s;">def</text>
+  <text x="720" y="32" font-family="'Courier New', monospace" font-size="11" fill="#7b2cbf" opacity="0.2" class="code-rain" style="animation-delay: 1.5s;">class</text>
+  <text x="745" y="38" font-family="'Courier New', monospace" font-size="9" fill="#00ff88" opacity="0.2" class="code-rain" style="animation-delay: 2.2s;">import</text>
+  <text x="30" cy="190" font-family="'Courier New', monospace" font-size="10" fill="#f9ca24" opacity="0.15" class="code-rain" style="animation-delay: 3s;">while</text>
+  <text x="760" y="188" font-family="'Courier New', monospace" font-size="10" fill="#4facfe" opacity="0.15" class="code-rain" style="animation-delay: 3.5s;">for</text>
+
   <g transform="translate(400, 105)" text-anchor="middle" dominant-baseline="central" font-family="'Impact', 'Arial Black', sans-serif" font-size="86" font-weight="900" letter-spacing="3">
-    
     <g class="floating-group">
       <text x="0" y="0" class="glow-bg">RIFLEKS</text>
-
       <text x="-10" y="10" fill="#05050a" opacity="0.9">RIFLEKS</text>
       <text x="-8" y="8" fill="#0a0a18" opacity="0.8">RIFLEKS</text>
       <text x="-6" y="6" fill="#12122a" opacity="0.7">RIFLEKS</text>
       <text x="-4" y="4" fill="#1a1a3a" opacity="0.6">RIFLEKS</text>
       <text x="-2" y="2" fill="#22224a" opacity="0.5">RIFLEKS</text>
-
       <text x="0" y="0" fill="url(#neon-gradient)" stroke="#ffffff" stroke-width="2" stroke-opacity="0.5" filter="url(#glow-light)">RIFLEKS</text>
-
       <text x="0" y="0" fill="url(#neon-gradient)" stroke="url(#neon-gradient)" stroke-width="1" stroke-opacity="0.3" opacity="0.7">RIFLEKS</text>
     </g>
   </g>
@@ -139,4 +133,31 @@
   <circle cx="670" cy="165" r="3" fill="#ff007f" opacity="0.3">
     <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2.5s" repeatCount="indefinite" />
   </circle>
+
+  <text x="190" y="200" font-family="'Courier New', monospace" font-size="13" fill="#4facfe" opacity="0.5">
+    <tspan>while True:</tspan>
+  </text>
+  <text x="210" y="216" font-family="'Courier New', monospace" font-size="11" fill="#00f2fe" opacity="0.35">
+    <tspan>print("Rifleks")</tspan>
+    <tspan class="typing-cursor" fill="#ff007f">_</tspan>
+  </text>
+
+  <text x="550" y="200" font-family="'Courier New', monospace" font-size="13" fill="#ff6b6b" opacity="0.4">
+    <tspan>class Developer:</tspan>
+  </text>
+  <text x="570" y="216" font-family="'Courier New', monospace" font-size="11" fill="#ff007f" opacity="0.3">
+    <tspan>pass  # forever</tspan>
+  </text>
+
+  <text x="0" y="10" font-family="'Courier New', monospace" font-size="14" fill="#00f2fe" opacity="0.15" class="bracket" style="animation-delay: 0s;">{</text>
+  <text x="790" y="10" font-family="'Courier New', monospace" font-size="14" fill="#ff007f" opacity="0.15" class="bracket" style="animation-delay: 0.5s;">}</text>
+  <text x="0" y="210" font-family="'Courier New', monospace" font-size="14" fill="#7b2cbf" opacity="0.15" class="bracket" style="animation-delay: 1s;">[</text>
+  <text x="790" y="210" font-family="'Courier New', monospace" font-size="14" fill="#f9ca24" opacity="0.15" class="bracket" style="animation-delay: 1.5s;">]</text>
+
+  <text x="340" y="28" font-family="'Courier New', monospace" font-size="9" fill="#00ff88" opacity="0.2">
+    <tspan>🐍</tspan>
+  </text>
+  <text x="460" y="28" font-family="'Courier New', monospace" font-size="9" fill="#ff6b6b" opacity="0.2">
+    <tspan>⚡</tspan>
+  </text>
 </svg>

@@ -1,30 +1,25 @@
-name: Generate 3D Contributions
+name: Auto Contributions
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 8 * * *"
   workflow_dispatch:
 
 jobs:
   generate:
-    permissions:
-      contents: write
     runs-on: ubuntu-latest
-    
+    name: Generate 3D Profile SVGs
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: ./ 
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
 
-      - name: Generate 3D Grid
-        uses: yoshiask/github-contribution-grid-snake@main
-        with:
-          github_user_name: Rifleks
-          svg_out_path: github-contributions-3d.svg
-          
-      - name: Commit and Push
+      - name: Commit & Push
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add github-contributions-3d.svg
-          git commit -m "Update 3D contributions grid" || exit 0
+          git config user.name ${{ github.actor }}
+          git config user.email ${{ github.actor }}@users.noreply.github.com
+          git add .
+          git commit -m "Updated 3D Profile SVGs."
           git push

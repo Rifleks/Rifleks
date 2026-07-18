@@ -281,10 +281,10 @@
     <tspan>⚡</tspan>
   </text>
 
-  <text x="345" y="202" font-family="'Courier New', monospace" font-size="8" fill="#4facfe" opacity="0.15" class="fade-cycle">
+  <text x="345" y="202" font-family="'Courier New', monospace" font-size="8" fill="#4facfe" opacity="0.18" class="fade-cycle">
     <tspan>__name__ == '__main__':</tspan>
   </text>
-  <text x="365" y="202" font-family="'Courier New', monospace" font-size="8" fill="#4facfe" opacity="0.15" class="fade-cycle">
+  <text x="365" y="214" font-family="'Courier New', monospace" font-size="8" fill="#4facfe" opacity="0.18" class="fade-cycle">
     <tspan>print('спасибо хорошо.')</tspan>
   </text>
 

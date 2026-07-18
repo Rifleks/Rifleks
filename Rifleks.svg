@@ -45,11 +45,12 @@
         stroke: url(#neon-gradient);
         stroke-width: 2.5;
         stroke-linecap: round;
+        stroke-dasharray: 40, 400;
         animation: expand 5s ease-in-out infinite alternate;
       }
       @keyframes expand {
-        0% { stroke-dasharray: 40, 400; stroke-dashoffset: 0; }
-        100% { stroke-dasharray: 350, 400; stroke-dashoffset: -60; }
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -60; }
       }
       
       .particle {
@@ -66,10 +67,10 @@
         will-change: transform, opacity;
       }
       @keyframes rain {
-        0% { transform: translateY(-25px); opacity: 0; }
-        15% { opacity: 0.5; }
-        85% { opacity: 0.5; }
-        100% { transform: translateY(25px); opacity: 0; }
+        0% { transform: translateY(-20px); opacity: 0; }
+        20% { opacity: 0.5; }
+        80% { opacity: 0.5; }
+        100% { transform: translateY(20px); opacity: 0; }
       }
       
       .code-rain2 {
@@ -77,10 +78,10 @@
         will-change: transform, opacity;
       }
       @keyframes rain2 {
-        0% { transform: translateY(-30px); opacity: 0; }
+        0% { transform: translateY(-25px); opacity: 0; }
         20% { opacity: 0.4; }
         80% { opacity: 0.4; }
-        100% { transform: translateY(30px); opacity: 0; }
+        100% { transform: translateY(25px); opacity: 0; }
       }
       
       .typing-cursor {
@@ -133,8 +134,7 @@
       }
       @keyframes floatDelayed {
         0%, 100% { transform: translateY(0px); }
-        33% { transform: translateY(-4px); }
-        66% { transform: translateY(4px); }
+        50% { transform: translateY(-3px); }
       }
       
       .fade-cycle {
@@ -153,7 +153,7 @@
       }
       @keyframes textPulse {
         0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.008); }
+        50% { transform: scale(1.005); }
       }
       
       .scan-line {
@@ -209,14 +209,14 @@
   <circle cx="300" cy="190" r="1.5" class="particle" style="animation-delay: 3.2s; fill: #f9ca24;" />
   <circle cx="500" cy="185" r="2" class="particle" style="animation-delay: 0.3s; fill: #7b2cbf;" />
 
-  <text x="25" y="32" font-family="'Courier New', monospace" font-size="11" fill="#00f2fe" opacity="0.3" class="code-rain" style="animation-delay: 0s;">print()</text>
-  <text x="55" y="38" font-family="'Courier New', monospace" font-size="9" fill="#ff007f" opacity="0.25" class="code-rain" style="animation-delay: 1.5s;">def</text>
+  <text x="15" y="32" font-family="'Courier New', monospace" font-size="11" fill="#00f2fe" opacity="0.3" class="code-rain" style="animation-delay: 0s;">print()</text>
+  <text x="15" y="55" font-family="'Courier New', monospace" font-size="9" fill="#ff007f" opacity="0.25" class="code-rain" style="animation-delay: 1.5s;">def</text>
   <text x="730" y="28" font-family="'Courier New', monospace" font-size="10" fill="#7b2cbf" opacity="0.25" class="code-rain2" style="animation-delay: 0.8s;">class</text>
-  <text x="755" y="34" font-family="'Courier New', monospace" font-size="8" fill="#00ff88" opacity="0.2" class="code-rain2" style="animation-delay: 2.5s;">import</text>
-  <text x="25" y="188" font-family="'Courier New', monospace" font-size="9" fill="#f9ca24" opacity="0.2" class="code-rain" style="animation-delay: 3.5s;">while</text>
+  <text x="730" y="50" font-family="'Courier New', monospace" font-size="8" fill="#00ff88" opacity="0.2" class="code-rain2" style="animation-delay: 2.5s;">import</text>
+  <text x="15" y="188" font-family="'Courier New', monospace" font-size="9" fill="#f9ca24" opacity="0.2" class="code-rain" style="animation-delay: 3.5s;">while</text>
   <text x="760" y="190" font-family="'Courier New', monospace" font-size="9" fill="#4facfe" opacity="0.2" class="code-rain" style="animation-delay: 4.5s;">for</text>
   <text x="680" y="195" font-family="'Courier New', monospace" font-size="8" fill="#ff6b6b" opacity="0.15" class="code-rain2" style="animation-delay: 3s;">try</text>
-  <text x="45" y="195" font-family="'Courier New', monospace" font-size="8" fill="#00f2fe" opacity="0.15" class="code-rain2" style="animation-delay: 2.2s;">except</text>
+  <text x="35" y="195" font-family="'Courier New', monospace" font-size="8" fill="#00f2fe" opacity="0.15" class="code-rain2" style="animation-delay: 2.2s;">except</text>
 
   <g transform="translate(400, 110)" text-anchor="middle" dominant-baseline="central" font-family="'Impact', 'Arial Black', sans-serif" font-size="86" font-weight="900" letter-spacing="3">
     <g class="text-container">
@@ -242,12 +242,8 @@
   <line x1="180" y1="180" x2="620" y2="180" class="cyber-line" />
 
   <g filter="url(#glow-light)">
-    <path d="M 145 70 L 128 70 L 128 140 L 145 140" fill="none" stroke="#00f2fe" stroke-width="3" class="cyber-line-pulse">
-      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="4s" repeatCount="indefinite" />
-    </path>
-    <path d="M 655 70 L 672 70 L 672 140 L 655 140" fill="none" stroke="#ff007f" stroke-width="3" class="cyber-line-pulse">
-      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="4s" repeatCount="indefinite" />
-    </path>
+    <path d="M 145 70 L 128 70 L 128 140 L 145 140" fill="none" stroke="#00f2fe" stroke-width="3" class="cyber-line-pulse" />
+    <path d="M 655 70 L 672 70 L 672 140 L 655 140" fill="none" stroke="#ff007f" stroke-width="3" class="cyber-line-pulse" />
   </g>
 
   <path d="M 100 40 L 100 55 L 115 55" fill="none" stroke="#00f2fe" stroke-width="2" opacity="0.4" class="slide-line" />
@@ -255,12 +251,8 @@
   <path d="M 100 180 L 100 165 L 115 165" fill="none" stroke="#00f2fe" stroke-width="2" opacity="0.4" class="slide-line" style="animation-delay: 1.2s;" />
   <path d="M 700 180 L 700 165 L 685 165" fill="none" stroke="#ff007f" stroke-width="2" opacity="0.4" class="slide-line" style="animation-delay: 1.8s;" />
 
-  <circle cx="130" cy="55" r="3" fill="#00f2fe" opacity="0.3" class="glow-pulse">
-    <animate attributeName="opacity" values="0.15;0.5;0.15" dur="3s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="670" cy="165" r="3" fill="#ff007f" opacity="0.3" class="glow-pulse" style="animation-delay: 0.5s;">
-    <animate attributeName="opacity" values="0.15;0.5;0.15" dur="3.5s" repeatCount="indefinite" />
-  </circle>
+  <circle cx="130" cy="55" r="3" fill="#00f2fe" opacity="0.3" class="glow-pulse" />
+  <circle cx="670" cy="165" r="3" fill="#ff007f" opacity="0.3" class="glow-pulse" style="animation-delay: 0.5s;" />
 
   <text x="190" y="200" font-family="'Courier New', monospace" font-size="13" fill="#4facfe" opacity="0.5" class="float-delayed">
     <tspan>while True:</tspan>
@@ -293,10 +285,6 @@
     <tspan>__name__ == '__main__'</tspan>
   </text>
 
-  <rect x="15" y="15" width="3" height="190" fill="#00f2fe" opacity="0.15" class="fade-cycle" style="animation-duration: 4s;">
-    <animate attributeName="opacity" values="0.05;0.15;0.05" dur="4s" repeatCount="indefinite" />
-  </rect>
-  <rect x="782" y="15" width="3" height="190" fill="#ff007f" opacity="0.15" class="fade-cycle" style="animation-duration: 4.5s;">
-    <animate attributeName="opacity" values="0.05;0.15;0.05" dur="4.5s" repeatCount="indefinite" />
-  </rect>
+  <rect x="15" y="15" width="3" height="190" fill="#00f2fe" opacity="0.15" class="fade-cycle" style="animation-duration: 4s;" />
+  <rect x="782" y="15" width="3" height="190" fill="#ff007f" opacity="0.15" class="fade-cycle" style="animation-duration: 4.5s;" />
 </svg>

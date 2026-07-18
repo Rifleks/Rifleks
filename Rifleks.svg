@@ -1,6 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" width="100%" height="100%">
   <defs>
-    <!-- Неоновый градиент с более сочными оттенками -->
     <linearGradient id="neon-gradient" x1="0%" y1="0%" x2="200%" y2="200%">
       <stop offset="0%" stop-color="#00f2fe">
         <animate attributeName="stop-color" values="#00f2fe;#4facfe;#ff007f;#ff6b6b;#00f2fe" dur="8s" repeatCount="indefinite" />
@@ -12,18 +11,6 @@
         <animate attributeName="stop-color" values="#ff007f;#00f2fe;#7b2cbf;#ff6b6b;#ff007f" dur="8s" repeatCount="indefinite" />
       </stop>
     </linearGradient>
-
-    <!-- Градиент для змеи -->
-    <linearGradient id="snake-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00ff88">
-        <animate attributeName="stop-color" values="#00ff88;#00f2fe;#ff007f;#f9ca24;#00ff88" dur="5s" repeatCount="indefinite" />
-      </stop>
-      <stop offset="100%" stop-color="#f9ca24">
-        <animate attributeName="stop-color" values="#f9ca24;#ff007f;#00f2fe;#00ff88;#f9ca24" dur="5s" repeatCount="indefinite" />
-      </stop>
-    </linearGradient>
-
-    <!-- Фильтры свечения -->
     <filter id="glow-heavy" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="20" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
@@ -38,7 +25,6 @@
       <feGaussianBlur stdDeviation="8" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
-
     <style>
       .floating-group {
         animation: float 5s ease-in-out infinite;
@@ -103,11 +89,9 @@
     </style>
   </defs>
 
-  <!-- Тёмный фон с лёгкой текстурой -->
   <rect width="800" height="220" fill="#0a0a14" rx="16" />
   <rect width="800" height="220" fill="url(#neon-gradient)" opacity="0.04" rx="16" />
 
-  <!-- Частицы -->
   <circle cx="80" cy="30" r="2.5" class="particle" style="animation-delay: 0.2s; fill: #00f2fe;" />
   <circle cx="720" cy="40" r="3.5" class="particle" style="animation-delay: 0.7s; fill: #ff007f;" />
   <circle cx="140" cy="180" r="2" class="particle" style="animation-delay: 1.2s; fill: #7b2cbf;" />
@@ -116,73 +100,25 @@
   <circle cx="750" cy="110" r="2" class="particle" style="animation-delay: 0.9s; fill: #ff6b6b;" />
   <circle cx="400" cy="15" r="2" class="particle" style="animation-delay: 2.1s; fill: #4facfe;" />
 
-  <!-- ЗМЕЯ (Python) -->
-  <g class="snake-body" filter="url(#glow-snake)">
-    <!-- Длинное тело змеи (волнообразная линия) -->
-    <path d="M 120 115 
-             C 180 75, 220 155, 280 115 
-             C 340 75, 380 155, 440 115 
-             C 500 75, 540 155, 600 115 
-             C 660 75, 700 155, 740 115" 
-          fill="none" stroke="url(#snake-gradient)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
-    
-    <!-- Внутренний блик на теле -->
-    <path d="M 120 115 
-             C 180 75, 220 155, 280 115 
-             C 340 75, 380 155, 440 115 
-             C 500 75, 540 155, 600 115 
-             C 660 75, 700 155, 740 115" 
-          fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.25" />
-
-    <!-- Голова змеи (справа) -->
-    <g transform="translate(740, 115) rotate(-15)">
-      <ellipse cx="0" cy="0" rx="18" ry="12" fill="url(#snake-gradient)" />
-      <ellipse cx="0" cy="0" rx="18" ry="12" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.3" />
-      <!-- Глаза -->
-      <ellipse cx="10" cy="-5" rx="4" ry="5" fill="#0a0a14" />
-      <ellipse cx="10" cy="5" rx="4" ry="5" fill="#0a0a14" />
-      <circle cx="12" cy="-5" r="2" class="snake-eye" />
-      <circle cx="12" cy="5" r="2" class="snake-eye" />
-      <!-- Язык -->
-      <path d="M 16 0 L 26 -6 L 30 -8 M 26 -6 L 30 -4 M 16 0 L 26 4 L 30 6 M 26 4 L 30 2" 
-            stroke="#ff007f" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.8">
-        <animate attributeName="opacity" values="0.4;1;0.4" dur="0.6s" repeatCount="indefinite" />
-      </path>
-    </g>
-
-    <!-- Хвост змеи (слева) -->
-    <path d="M 120 115 C 100 115, 85 105, 80 95" 
-          fill="none" stroke="url(#snake-gradient)" stroke-width="10" stroke-linecap="round" />
-    <path d="M 80 95 C 75 85, 78 75, 72 70" 
-          fill="none" stroke="url(#snake-gradient)" stroke-width="6" stroke-linecap="round" />
-  </g>
-
-  <!-- Основная группа с логотипом -->
   <g transform="translate(400, 105)" text-anchor="middle" dominant-baseline="central" font-family="'Impact', 'Arial Black', sans-serif" font-size="86" font-weight="900" letter-spacing="3">
     
     <g class="floating-group">
-      <!-- Заднее свечение -->
       <text x="0" y="0" class="glow-bg">RIFLEKS</text>
 
-      <!-- 3D-экструзия (глубина) -->
       <text x="-10" y="10" fill="#05050a" opacity="0.9">RIFLEKS</text>
       <text x="-8" y="8" fill="#0a0a18" opacity="0.8">RIFLEKS</text>
       <text x="-6" y="6" fill="#12122a" opacity="0.7">RIFLEKS</text>
       <text x="-4" y="4" fill="#1a1a3a" opacity="0.6">RIFLEKS</text>
       <text x="-2" y="2" fill="#22224a" opacity="0.5">RIFLEKS</text>
 
-      <!-- Текст с переливающимся градиентом и обводкой -->
       <text x="0" y="0" fill="url(#neon-gradient)" stroke="#ffffff" stroke-width="2" stroke-opacity="0.5" filter="url(#glow-light)">RIFLEKS</text>
-      
-      <!-- Второй слой текста для усиления свечения -->
+
       <text x="0" y="0" fill="url(#neon-gradient)" stroke="url(#neon-gradient)" stroke-width="1" stroke-opacity="0.3" opacity="0.7">RIFLEKS</text>
     </g>
   </g>
 
-  <!-- Декоративные линии -->
   <line x1="180" y1="180" x2="620" y2="180" class="cyber-line" />
 
-  <!-- Боковые скобки с неоном -->
   <g filter="url(#glow-light)">
     <path d="M 145 70 L 128 70 L 128 140 L 145 140" fill="none" stroke="#00f2fe" stroke-width="3" opacity="0.7">
       <animate attributeName="opacity" values="0.4;0.9;0.4" dur="3s" repeatCount="indefinite" />
@@ -192,13 +128,11 @@
     </path>
   </g>
 
-  <!-- Декоративные уголки -->
   <path d="M 100 40 L 100 55 L 115 55" fill="none" stroke="#00f2fe" stroke-width="2" opacity="0.4" />
   <path d="M 700 40 L 700 55 L 685 55" fill="none" stroke="#ff007f" stroke-width="2" opacity="0.4" />
   <path d="M 100 180 L 100 165 L 115 165" fill="none" stroke="#00f2fe" stroke-width="2" opacity="0.4" />
   <path d="M 700 180 L 700 165 L 685 165" fill="none" stroke="#ff007f" stroke-width="2" opacity="0.4" />
 
-  <!-- Мелкие кибер-элементы (декор) -->
   <circle cx="130" cy="55" r="3" fill="#00f2fe" opacity="0.3">
     <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2s" repeatCount="indefinite" />
   </circle>

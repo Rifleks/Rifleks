@@ -11,6 +11,14 @@
         <animate attributeName="stop-color" values="#ff007f;#00f2fe;#7b2cbf;#ff6b6b;#ff007f" dur="8s" repeatCount="indefinite" />
       </stop>
     </linearGradient>
+    <linearGradient id="text-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe">
+        <animate attributeName="stop-color" values="#00f2fe;#ff007f;#7b2cbf;#00f2fe" dur="6s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#ff007f">
+        <animate attributeName="stop-color" values="#ff007f;#00f2fe;#4facfe;#ff007f" dur="6s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
     <filter id="glow-heavy" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="20" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
@@ -19,24 +27,59 @@
       <feGaussianBlur stdDeviation="6" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
+    <filter id="glow-strong" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="glow-extreme" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="25" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
     <style>
-      .floating-group {
-        animation: float 5s ease-in-out infinite;
+      .letter {
+        display: inline-block;
+        animation: letterFloat 3s ease-in-out infinite;
       }
-      @keyframes float {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-8px) rotate(0.5deg); }
+      .letter:nth-child(1) { animation-delay: 0s; }
+      .letter:nth-child(2) { animation-delay: 0.15s; }
+      .letter:nth-child(3) { animation-delay: 0.3s; }
+      .letter:nth-child(4) { animation-delay: 0.45s; }
+      .letter:nth-child(5) { animation-delay: 0.6s; }
+      .letter:nth-child(6) { animation-delay: 0.75s; }
+      .letter:nth-child(7) { animation-delay: 0.9s; }
+      
+      @keyframes letterFloat {
+        0%, 100% { transform: translateY(0px) scale(1) rotate(0deg); }
+        25% { transform: translateY(-15px) scale(1.1) rotate(-2deg); }
+        75% { transform: translateY(10px) scale(0.95) rotate(2deg); }
       }
-      .glow-bg {
-        fill: url(#neon-gradient);
-        opacity: 0.3;
-        filter: url(#glow-heavy);
-        animation: pulse 4s ease-in-out infinite;
+      
+      .letter-glitch {
+        animation: glitch 2s ease-in-out infinite;
       }
-      @keyframes pulse {
-        0%, 100% { opacity: 0.2; transform: scale(0.97); }
-        50% { opacity: 0.6; transform: scale(1.03); }
+      .letter-glitch:nth-child(1) { animation-delay: 0s; }
+      .letter-glitch:nth-child(2) { animation-delay: 0.3s; }
+      .letter-glitch:nth-child(3) { animation-delay: 0.6s; }
+      .letter-glitch:nth-child(4) { animation-delay: 0.9s; }
+      .letter-glitch:nth-child(5) { animation-delay: 1.2s; }
+      .letter-glitch:nth-child(6) { animation-delay: 1.5s; }
+      .letter-glitch:nth-child(7) { animation-delay: 1.8s; }
+      
+      @keyframes glitch {
+        0%, 90%, 100% { opacity: 0; transform: translateX(0); }
+        92% { opacity: 1; transform: translateX(-8px) scale(1.2); }
+        94% { opacity: 1; transform: translateX(8px) scale(0.8); }
+        96% { opacity: 0; transform: translateX(-5px); }
       }
+      
+      .letter-shine {
+        animation: shine 4s ease-in-out infinite;
+      }
+      @keyframes shine {
+        0%, 100% { opacity: 0.3; filter: url(#glow-light); }
+        50% { opacity: 0.9; filter: url(#glow-extreme); }
+      }
+      
       .cyber-line {
         stroke: url(#neon-gradient);
         stroke-width: 2.5;
@@ -59,9 +102,18 @@
       }
       @keyframes rain {
         0% { transform: translateY(-20px); opacity: 0; }
-        10% { opacity: 1; }
-        90% { opacity: 1; }
+        10% { opacity: 0.6; }
+        90% { opacity: 0.6; }
         100% { transform: translateY(20px); opacity: 0; }
+      }
+      .code-rain2 {
+        animation: rain2 5s linear infinite;
+      }
+      @keyframes rain2 {
+        0% { transform: translateY(-30px); opacity: 0; }
+        15% { opacity: 0.4; }
+        85% { opacity: 0.4; }
+        100% { transform: translateY(25px); opacity: 0; }
       }
       .typing-cursor {
         animation: blink 1s step-end infinite;
@@ -74,8 +126,58 @@
         animation: bracketPulse 2s ease-in-out infinite;
       }
       @keyframes bracketPulse {
-        0%, 100% { opacity: 0.3; transform: scale(1); }
-        50% { opacity: 0.8; transform: scale(1.1); }
+        0%, 100% { opacity: 0.2; transform: scale(1); }
+        50% { opacity: 0.7; transform: scale(1.15); }
+      }
+      .rotating-icon {
+        animation: rotate 8s linear infinite;
+      }
+      @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      .slide-line {
+        animation: slide 3s ease-in-out infinite alternate;
+      }
+      @keyframes slide {
+        0% { transform: translateX(-10px); opacity: 0.2; }
+        100% { transform: translateX(10px); opacity: 0.6; }
+      }
+      .glow-pulse {
+        animation: glowPulse 2s ease-in-out infinite alternate;
+      }
+      @keyframes glowPulse {
+        0% { filter: url(#glow-light); opacity: 0.3; }
+        100% { filter: url(#glow-strong); opacity: 0.8; }
+      }
+      .float-delayed {
+        animation: floatDelayed 6s ease-in-out infinite;
+      }
+      @keyframes floatDelayed {
+        0%, 100% { transform: translateY(0px); }
+        33% { transform: translateY(-5px); }
+        66% { transform: translateY(5px); }
+      }
+      .fade-cycle {
+        animation: fadeCycle 4s ease-in-out infinite;
+      }
+      @keyframes fadeCycle {
+        0%, 100% { opacity: 0.1; }
+        50% { opacity: 0.5; }
+      }
+      .text-pulse {
+        animation: textPulse 3s ease-in-out infinite;
+      }
+      @keyframes textPulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.02); }
+      }
+      .scan-line {
+        animation: scan 3s linear infinite;
+      }
+      @keyframes scan {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
       }
     </style>
   </defs>
@@ -90,26 +192,40 @@
   <circle cx="50" cy="100" r="1.5" class="particle" style="animation-delay: 1.8s; fill: #00ff88;" />
   <circle cx="750" cy="110" r="2" class="particle" style="animation-delay: 0.9s; fill: #ff6b6b;" />
   <circle cx="400" cy="15" r="2" class="particle" style="animation-delay: 2.1s; fill: #4facfe;" />
+  <circle cx="200" cy="45" r="1.8" class="particle" style="animation-delay: 1.5s; fill: #ff0844;" />
+  <circle cx="600" cy="50" r="2.2" class="particle" style="animation-delay: 2.8s; fill: #00f2fe;" />
+  <circle cx="300" cy="190" r="1.5" class="particle" style="animation-delay: 3.2s; fill: #f9ca24;" />
+  <circle cx="500" cy="185" r="2" class="particle" style="animation-delay: 0.3s; fill: #7b2cbf;" />
 
-  <text x="35" y="36" font-family="'Courier New', monospace" font-size="12" fill="#00f2fe" opacity="0.25" class="code-rain" style="animation-delay: 0s;">print()</text>
-  <text x="60" y="42" font-family="'Courier New', monospace" font-size="10" fill="#ff007f" opacity="0.2" class="code-rain" style="animation-delay: 0.8s;">def</text>
-  <text x="720" y="32" font-family="'Courier New', monospace" font-size="11" fill="#7b2cbf" opacity="0.2" class="code-rain" style="animation-delay: 1.5s;">class</text>
-  <text x="745" y="38" font-family="'Courier New', monospace" font-size="9" fill="#00ff88" opacity="0.2" class="code-rain" style="animation-delay: 2.2s;">import</text>
-  <text x="30" cy="190" font-family="'Courier New', monospace" font-size="10" fill="#f9ca24" opacity="0.15" class="code-rain" style="animation-delay: 3s;">while</text>
-  <text x="760" y="188" font-family="'Courier New', monospace" font-size="10" fill="#4facfe" opacity="0.15" class="code-rain" style="animation-delay: 3.5s;">for</text>
+  <text x="25" y="32" font-family="'Courier New', monospace" font-size="11" fill="#00f2fe" opacity="0.3" class="code-rain" style="animation-delay: 0s;">print()</text>
+  <text x="55" y="38" font-family="'Courier New', monospace" font-size="9" fill="#ff007f" opacity="0.25" class="code-rain" style="animation-delay: 1.2s;">def</text>
+  <text x="730" y="28" font-family="'Courier New', monospace" font-size="10" fill="#7b2cbf" opacity="0.25" class="code-rain2" style="animation-delay: 0.5s;">class</text>
+  <text x="755" y="34" font-family="'Courier New', monospace" font-size="8" fill="#00ff88" opacity="0.2" class="code-rain2" style="animation-delay: 2s;">import</text>
+  <text x="25" y="188" font-family="'Courier New', monospace" font-size="9" fill="#f9ca24" opacity="0.2" class="code-rain" style="animation-delay: 3s;">while</text>
+  <text x="760" y="190" font-family="'Courier New', monospace" font-size="9" fill="#4facfe" opacity="0.2" class="code-rain" style="animation-delay: 4s;">for</text>
+  <text x="680" y="195" font-family="'Courier New', monospace" font-size="8" fill="#ff6b6b" opacity="0.15" class="code-rain2" style="animation-delay: 2.5s;">try</text>
+  <text x="45" y="195" font-family="'Courier New', monospace" font-size="8" fill="#00f2fe" opacity="0.15" class="code-rain2" style="animation-delay: 1.8s;">except</text>
 
-  <g transform="translate(400, 105)" text-anchor="middle" dominant-baseline="central" font-family="'Impact', 'Arial Black', sans-serif" font-size="86" font-weight="900" letter-spacing="3">
-    <g class="floating-group">
-      <text x="0" y="0" class="glow-bg">RIFLEKS</text>
+  <g transform="translate(400, 110)" text-anchor="middle" dominant-baseline="central" font-family="'Impact', 'Arial Black', sans-serif" font-size="86" font-weight="900" letter-spacing="3">
+    <g class="text-pulse">
       <text x="-10" y="10" fill="#05050a" opacity="0.9">RIFLEKS</text>
       <text x="-8" y="8" fill="#0a0a18" opacity="0.8">RIFLEKS</text>
       <text x="-6" y="6" fill="#12122a" opacity="0.7">RIFLEKS</text>
       <text x="-4" y="4" fill="#1a1a3a" opacity="0.6">RIFLEKS</text>
       <text x="-2" y="2" fill="#22224a" opacity="0.5">RIFLEKS</text>
+      
       <text x="0" y="0" fill="url(#neon-gradient)" stroke="#ffffff" stroke-width="2" stroke-opacity="0.5" filter="url(#glow-light)">RIFLEKS</text>
-      <text x="0" y="0" fill="url(#neon-gradient)" stroke="url(#neon-gradient)" stroke-width="1" stroke-opacity="0.3" opacity="0.7">RIFLEKS</text>
+      
+      <text x="0" y="0" fill="none" stroke="url(#text-glow)" stroke-width="1.5" opacity="0.8" filter="url(#glow-strong)">RIFLEKS</text>
+      
+      <text x="0" y="0" fill="url(#text-glow)" opacity="0.3" filter="url(#glow-extreme)">RIFLEKS</text>
+      
+      <text x="0" y="0" fill="#ffffff" opacity="0.1">RIFLEKS</text>
     </g>
   </g>
+
+  <rect x="150" y="60" width="500" height="3" fill="url(#neon-gradient)" opacity="0.4" class="scan-line" />
+  <rect x="150" y="157" width="500" height="3" fill="url(#neon-gradient)" opacity="0.4" class="scan-line" style="animation-direction: reverse; animation-duration: 4s;" />
 
   <line x1="180" y1="180" x2="620" y2="180" class="cyber-line" />
 
@@ -122,42 +238,53 @@
     </path>
   </g>
 
-  <path d="M 100 40 L 100 55 L 115 55" fill="none" stroke="#00f2fe" stroke-width="2" opacity="0.4" />
-  <path d="M 700 40 L 700 55 L 685 55" fill="none" stroke="#ff007f" stroke-width="2" opacity="0.4" />
-  <path d="M 100 180 L 100 165 L 115 165" fill="none" stroke="#00f2fe" stroke-width="2" opacity="0.4" />
-  <path d="M 700 180 L 700 165 L 685 165" fill="none" stroke="#ff007f" stroke-width="2" opacity="0.4" />
+  <path d="M 100 40 L 100 55 L 115 55" fill="none" stroke="#00f2fe" stroke-width="2" opacity="0.4" class="slide-line" />
+  <path d="M 700 40 L 700 55 L 685 55" fill="none" stroke="#ff007f" stroke-width="2" opacity="0.4" class="slide-line" style="animation-delay: 0.5s;" />
+  <path d="M 100 180 L 100 165 L 115 165" fill="none" stroke="#00f2fe" stroke-width="2" opacity="0.4" class="slide-line" style="animation-delay: 1s;" />
+  <path d="M 700 180 L 700 165 L 685 165" fill="none" stroke="#ff007f" stroke-width="2" opacity="0.4" class="slide-line" style="animation-delay: 1.5s;" />
 
-  <circle cx="130" cy="55" r="3" fill="#00f2fe" opacity="0.3">
+  <circle cx="130" cy="55" r="3" fill="#00f2fe" opacity="0.3" class="glow-pulse">
     <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2s" repeatCount="indefinite" />
   </circle>
-  <circle cx="670" cy="165" r="3" fill="#ff007f" opacity="0.3">
+  <circle cx="670" cy="165" r="3" fill="#ff007f" opacity="0.3" class="glow-pulse" style="animation-delay: 0.5s;">
     <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2.5s" repeatCount="indefinite" />
   </circle>
 
-  <text x="190" y="200" font-family="'Courier New', monospace" font-size="13" fill="#4facfe" opacity="0.5">
+  <text x="190" y="200" font-family="'Courier New', monospace" font-size="13" fill="#4facfe" opacity="0.5" class="float-delayed">
     <tspan>while True:</tspan>
   </text>
   <text x="210" y="216" font-family="'Courier New', monospace" font-size="11" fill="#00f2fe" opacity="0.35">
-    <tspan>print("Rifleks")</tspan>
+    <tspan>print('Rifleks')</tspan>
     <tspan class="typing-cursor" fill="#ff007f">_</tspan>
   </text>
 
-  <text x="550" y="200" font-family="'Courier New', monospace" font-size="13" fill="#ff6b6b" opacity="0.4">
+  <text x="540" y="200" font-family="'Courier New', monospace" font-size="13" fill="#ff6b6b" opacity="0.4" class="float-delayed" style="animation-delay: 1s;">
     <tspan>class Developer:</tspan>
   </text>
-  <text x="570" y="216" font-family="'Courier New', monospace" font-size="11" fill="#ff007f" opacity="0.3">
+  <text x="560" y="216" font-family="'Courier New', monospace" font-size="11" fill="#ff007f" opacity="0.3">
     <tspan>pass  # forever</tspan>
   </text>
 
-  <text x="0" y="10" font-family="'Courier New', monospace" font-size="14" fill="#00f2fe" opacity="0.15" class="bracket" style="animation-delay: 0s;">{</text>
-  <text x="790" y="10" font-family="'Courier New', monospace" font-size="14" fill="#ff007f" opacity="0.15" class="bracket" style="animation-delay: 0.5s;">}</text>
+  <text x="0" y="12" font-family="'Courier New', monospace" font-size="14" fill="#00f2fe" opacity="0.15" class="bracket" style="animation-delay: 0s;">{</text>
+  <text x="790" y="12" font-family="'Courier New', monospace" font-size="14" fill="#ff007f" opacity="0.15" class="bracket" style="animation-delay: 0.5s;">}</text>
   <text x="0" y="210" font-family="'Courier New', monospace" font-size="14" fill="#7b2cbf" opacity="0.15" class="bracket" style="animation-delay: 1s;">[</text>
   <text x="790" y="210" font-family="'Courier New', monospace" font-size="14" fill="#f9ca24" opacity="0.15" class="bracket" style="animation-delay: 1.5s;">]</text>
 
-  <text x="340" y="28" font-family="'Courier New', monospace" font-size="9" fill="#00ff88" opacity="0.2">
+  <text x="338" y="28" font-family="'Courier New', monospace" font-size="9" fill="#00ff88" opacity="0.25" class="rotating-icon">
     <tspan>🐍</tspan>
   </text>
-  <text x="460" y="28" font-family="'Courier New', monospace" font-size="9" fill="#ff6b6b" opacity="0.2">
+  <text x="462" y="28" font-family="'Courier New', monospace" font-size="9" fill="#ff6b6b" opacity="0.25" class="rotating-icon" style="animation-duration: 6s;">
     <tspan>⚡</tspan>
   </text>
+
+  <text x="345" y="202" font-family="'Courier New', monospace" font-size="8" fill="#4facfe" opacity="0.15" class="fade-cycle">
+    <tspan>__name__ == '__main__'</tspan>
+  </text>
+
+  <rect x="15" y="15" width="3" height="190" fill="#00f2fe" opacity="0.15" class="fade-cycle" style="animation-duration: 3s;">
+    <animate attributeName="opacity" values="0.05;0.2;0.05" dur="3s" repeatCount="indefinite" />
+  </rect>
+  <rect x="782" y="15" width="3" height="190" fill="#ff007f" opacity="0.15" class="fade-cycle" style="animation-duration: 3.5s;">
+    <animate attributeName="opacity" values="0.05;0.2;0.05" dur="3.5s" repeatCount="indefinite" />
+  </rect>
 </svg>

@@ -47,6 +47,18 @@
       <feGaussianBlur stdDeviation="4" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
+    <radialGradient id="bg-glow1" cx="30%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#4facfe" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#4facfe" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bg-glow2" cx="70%" cy="70%" r="50%">
+      <stop offset="0%" stop-color="#ff007f" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#ff007f" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bg-glow3" cx="50%" cy="40%" r="40%">
+      <stop offset="0%" stop-color="#7b2cbf" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#7b2cbf" stop-opacity="0"/>
+    </radialGradient>
     <style>
       * {
         -webkit-font-smoothing: antialiased;
@@ -64,31 +76,31 @@
         100% { stroke-dashoffset: -60; }
       }
       .particle {
-        animation: sparkle 3s ease-in-out infinite alternate;
+        animation: sparkle 4s ease-in-out infinite alternate;
         will-change: opacity, transform;
       }
       @keyframes sparkle {
-        0% { opacity: 0.15; transform: scale(0.7) rotate(0deg); }
-        100% { opacity: 0.9; transform: scale(1.3) rotate(180deg); }
+        0% { opacity: 0.1; transform: scale(0.7); }
+        100% { opacity: 0.5; transform: scale(1.2); }
       }
       .code-rain {
-        animation: rain 6s linear infinite;
+        animation: rain 8s linear infinite;
         will-change: transform, opacity;
       }
       @keyframes rain {
         0% { transform: translateY(-20px); opacity: 0; }
-        20% { opacity: 0.5; }
-        80% { opacity: 0.5; }
+        20% { opacity: 0.3; }
+        80% { opacity: 0.3; }
         100% { transform: translateY(20px); opacity: 0; }
       }
       .code-rain2 {
-        animation: rain2 7s linear infinite;
+        animation: rain2 9s linear infinite;
         will-change: transform, opacity;
       }
       @keyframes rain2 {
         0% { transform: translateY(-25px); opacity: 0; }
-        20% { opacity: 0.4; }
-        80% { opacity: 0.4; }
+        20% { opacity: 0.25; }
+        80% { opacity: 0.25; }
         100% { transform: translateY(25px); opacity: 0; }
       }
       .typing-cursor {
@@ -99,15 +111,15 @@
         50% { opacity: 0; }
       }
       .bracket {
-        animation: bracketPulse 3s ease-in-out infinite;
+        animation: bracketPulse 4s ease-in-out infinite;
         will-change: opacity, transform;
       }
       @keyframes bracketPulse {
-        0%, 100% { opacity: 0.2; transform: scale(1); }
-        50% { opacity: 0.6; transform: scale(1.1); }
+        0%, 100% { opacity: 0.15; transform: scale(1); }
+        50% { opacity: 0.4; transform: scale(1.05); }
       }
       .rotating-icon {
-        animation: rotate 10s linear infinite;
+        animation: rotate 12s linear infinite;
         will-change: transform;
       }
       @keyframes rotate {
@@ -115,48 +127,48 @@
         100% { transform: rotate(360deg); }
       }
       .slide-line {
-        animation: slide 4s ease-in-out infinite alternate;
+        animation: slide 5s ease-in-out infinite alternate;
         will-change: transform, opacity;
       }
       @keyframes slide {
-        0% { transform: translateX(-8px); opacity: 0.2; }
-        100% { transform: translateX(8px); opacity: 0.5; }
+        0% { transform: translateX(-6px); opacity: 0.15; }
+        100% { transform: translateX(6px); opacity: 0.35; }
       }
       .glow-pulse {
-        animation: glowPulse 3s ease-in-out infinite alternate;
+        animation: glowPulse 4s ease-in-out infinite alternate;
         will-change: opacity;
       }
       @keyframes glowPulse {
-        0% { opacity: 0.2; }
-        100% { opacity: 0.7; }
+        0% { opacity: 0.15; }
+        100% { opacity: 0.4; }
       }
       .float-delayed {
-        animation: floatDelayed 7s ease-in-out infinite;
+        animation: floatDelayed 8s ease-in-out infinite;
         will-change: transform;
       }
       @keyframes floatDelayed {
         0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-3px); }
+        50% { transform: translateY(-2px); }
       }
       .fade-cycle {
-        animation: fadeCycle 5s ease-in-out infinite;
+        animation: fadeCycle 6s ease-in-out infinite;
         will-change: opacity;
       }
       @keyframes fadeCycle {
-        0%, 100% { opacity: 0.1; }
-        50% { opacity: 0.4; }
+        0%, 100% { opacity: 0.08; }
+        50% { opacity: 0.25; }
       }
       .text-container {
-        animation: textPulse 5s ease-in-out infinite;
+        animation: textPulse 6s ease-in-out infinite;
         transform-origin: center;
         will-change: transform;
       }
       @keyframes textPulse {
         0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.005); }
+        50% { transform: scale(1.003); }
       }
       .scan-line {
-        animation: scan 4s linear infinite;
+        animation: scan 5s linear infinite;
         will-change: transform;
       }
       @keyframes scan {
@@ -164,226 +176,225 @@
         100% { transform: translateX(100%); }
       }
       .glow-layer {
-        animation: glowPulseSoft 4s ease-in-out infinite;
+        animation: glowPulseSoft 5s ease-in-out infinite;
         will-change: opacity;
       }
       @keyframes glowPulseSoft {
-        0%, 100% { opacity: 0.5; }
-        50% { opacity: 0.9; }
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 0.7; }
       }
       .extreme-glow {
-        animation: extremePulse 5s ease-in-out infinite;
+        animation: extremePulse 6s ease-in-out infinite;
         will-change: opacity;
       }
       @keyframes extremePulse {
-        0%, 100% { opacity: 0.15; }
-        50% { opacity: 0.4; }
+        0%, 100% { opacity: 0.1; }
+        50% { opacity: 0.3; }
       }
       .cyber-line-pulse {
-        animation: linePulse 3s ease-in-out infinite alternate;
+        animation: linePulse 4s ease-in-out infinite alternate;
         will-change: opacity;
       }
       @keyframes linePulse {
-        0% { opacity: 0.4; }
-        100% { opacity: 0.8; }
+        0% { opacity: 0.3; }
+        100% { opacity: 0.6; }
       }
       .tech-label {
-        animation: techFade 4s ease-in-out infinite;
+        animation: techFade 5s ease-in-out infinite;
         will-change: opacity, transform;
       }
       @keyframes techFade {
-        0%, 100% { opacity: 0.6; transform: scale(1); }
-        50% { opacity: 1; transform: scale(1.03); }
+        0%, 100% { opacity: 0.5; transform: scale(1); }
+        50% { opacity: 0.8; transform: scale(1.02); }
       }
       .badge-glow {
-        animation: badgePulse 3s ease-in-out infinite;
-        will-change: box-shadow;
+        animation: badgePulse 4s ease-in-out infinite;
+        will-change: opacity;
       }
       @keyframes badgePulse {
         0% { opacity: 0.3; }
-        50% { opacity: 0.8; }
+        50% { opacity: 0.6; }
         100% { opacity: 0.3; }
       }
-      .float-up {
-        animation: floatUp 6s ease-in-out infinite;
-        will-change: transform;
-      }
-      @keyframes floatUp {
-        0%, 100% { transform: translateY(0px) scale(1); }
-        50% { transform: translateY(-8px) scale(1.05); }
-      }
       .pulse-ring {
-        animation: pulseRing 2.5s ease-out infinite;
+        animation: pulseRing 3s ease-out infinite;
         will-change: transform, opacity;
       }
       @keyframes pulseRing {
-        0% { transform: scale(0.5); opacity: 0.8; }
-        100% { transform: scale(2); opacity: 0; }
-      }
-      .flicker {
-        animation: flicker 2s ease-in-out infinite;
-        will-change: opacity;
-      }
-      @keyframes flicker {
-        0%, 100% { opacity: 0.3; }
-        50% { opacity: 0.8; }
+        0% { transform: scale(0.6); opacity: 0.5; }
+        100% { transform: scale(1.8); opacity: 0; }
       }
       .spin-slow {
-        animation: spinSlow 20s linear infinite;
+        animation: spinSlow 25s linear infinite;
         will-change: transform;
       }
       @keyframes spinSlow {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
       }
-      .glitch-text {
-        animation: glitch 3s ease-in-out infinite;
+      .bg-orb {
+        animation: bgOrb 12s ease-in-out infinite;
         will-change: transform;
       }
-      @keyframes glitch {
-        0%, 90%, 100% { transform: translate(0); }
-        92% { transform: translate(-2px, -1px); }
-        94% { transform: translate(2px, 1px); }
-        96% { transform: translate(-1px, 2px); }
+      @keyframes bgOrb {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        25% { transform: translate(20px, -15px) scale(1.1); }
+        50% { transform: translate(-10px, 10px) scale(0.9); }
+        75% { transform: translate(15px, -5px) scale(1.05); }
+      }
+      .line-flow {
+        animation: lineFlow 6s linear infinite;
+        will-change: stroke-dashoffset;
+      }
+      @keyframes lineFlow {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -100; }
       }
     </style>
   </defs>
+
   <rect width="800" height="500" fill="#0a0a14" rx="20" />
-  <rect width="800" height="500" fill="url(#neon-gradient)" opacity="0.03" rx="20" />
-  <circle cx="80" cy="30" r="2.5" class="particle" style="animation-delay: 0.2s; fill: #00f2fe;" />
-  <circle cx="720" cy="40" r="3.5" class="particle" style="animation-delay: 0.7s; fill: #ff007f;" />
-  <circle cx="140" cy="180" r="2" class="particle" style="animation-delay: 1.2s; fill: #7b2cbf;" />
-  <circle cx="670" cy="175" r="2.5" class="particle" style="animation-delay: 0.5s; fill: #f9ca24;" />
-  <circle cx="50" cy="100" r="1.5" class="particle" style="animation-delay: 1.8s; fill: #00ff88;" />
-  <circle cx="750" cy="110" r="2" class="particle" style="animation-delay: 0.9s; fill: #ff6b6b;" />
-  <circle cx="400" cy="15" r="2" class="particle" style="animation-delay: 2.1s; fill: #4facfe;" />
-  <circle cx="200" cy="45" r="1.8" class="particle" style="animation-delay: 1.5s; fill: #ff0844;" />
-  <circle cx="600" cy="50" r="2.2" class="particle" style="animation-delay: 2.8s; fill: #00f2fe;" />
-  <circle cx="300" cy="190" r="1.5" class="particle" style="animation-delay: 3.2s; fill: #f9ca24;" />
-  <circle cx="500" cy="185" r="2" class="particle" style="animation-delay: 0.3s; fill: #7b2cbf;" />
-  <circle cx="120" cy="350" r="2" class="particle" style="animation-delay: 1.1s; fill: #4facfe;" />
-  <circle cx="680" cy="360" r="2.5" class="particle" style="animation-delay: 0.6s; fill: #ff6b6b;" />
-  <circle cx="60" cy="420" r="1.8" class="particle" style="animation-delay: 2.4s; fill: #00ff88;" />
-  <circle cx="740" cy="430" r="2" class="particle" style="animation-delay: 1.9s; fill: #f9ca24;" />
-  <circle cx="30" cy="250" r="1.5" class="particle" style="animation-delay: 3.8s; fill: #ff0844;" />
-  <circle cx="770" cy="260" r="2" class="particle" style="animation-delay: 4.2s; fill: #00ff88;" />
-  <circle cx="160" cy="460" r="1.8" class="particle" style="animation-delay: 0.8s; fill: #4facfe;" />
-  <circle cx="640" cy="455" r="2.2" class="particle" style="animation-delay: 3.5s; fill: #f9ca24;" />
-  <text x="15" y="32" font-family="'Courier New', monospace" font-size="11" fill="#00f2fe" opacity="0.3" class="code-rain" style="animation-delay: 0s;">print()</text>
-  <text x="15" y="55" font-family="'Courier New', monospace" font-size="9" fill="#ff007f" opacity="0.25" class="code-rain" style="animation-delay: 1.5s;">def</text>
-  <text x="730" y="28" font-family="'Courier New', monospace" font-size="10" fill="#7b2cbf" opacity="0.25" class="code-rain2" style="animation-delay: 0.8s;">class</text>
-  <text x="730" y="50" font-family="'Courier New', monospace" font-size="8" fill="#00ff88" opacity="0.2" class="code-rain2" style="animation-delay: 2.5s;">import</text>
-  <text x="15" y="188" font-family="'Courier New', monospace" font-size="9" fill="#f9ca24" opacity="0.2" class="code-rain" style="animation-delay: 3.5s;">while</text>
-  <text x="760" y="190" font-family="'Courier New', monospace" font-size="9" fill="#4facfe" opacity="0.2" class="code-rain" style="animation-delay: 4.5s;">for</text>
-  <text x="680" y="195" font-family="'Courier New', monospace" font-size="8" fill="#ff6b6b" opacity="0.15" class="code-rain2" style="animation-delay: 3s;">try</text>
-  <text x="35" y="195" font-family="'Courier New', monospace" font-size="8" fill="#00f2fe" opacity="0.15" class="code-rain2" style="animation-delay: 2.2s;">except</text>
-  <text x="15" y="460" font-family="'Courier New', monospace" font-size="10" fill="#7b2cbf" opacity="0.2" class="code-rain" style="animation-delay: 1.2s;">lambda</text>
-  <text x="730" y="470" font-family="'Courier New', monospace" font-size="9" fill="#ff0844" opacity="0.15" class="code-rain2" style="animation-delay: 0.4s;">async</text>
-  <text x="50" y="310" font-family="'Courier New', monospace" font-size="8" fill="#00f2fe" opacity="0.12" class="code-rain" style="animation-delay: 5.2s;">@decorator</text>
-  <text x="720" y="315" font-family="'Courier New', monospace" font-size="8" fill="#ff6b6b" opacity="0.12" class="code-rain2" style="animation-delay: 4.8s;">yield</text>
-  <g transform="translate(400, 115)" text-anchor="middle" dominant-baseline="central" font-family="'Impact', 'Arial Black', sans-serif" font-size="120" font-weight="900" letter-spacing="4">
-    <g class="text-container">
-      <text x="-12" y="12" fill="#05050a" opacity="0.9">Rifleks</text>
-      <text x="-10" y="10" fill="#0a0a18" opacity="0.8">Rifleks</text>
-      <text x="-8" y="8" fill="#12122a" opacity="0.7">Rifleks</text>
-      <text x="-6" y="6" fill="#1a1a3a" opacity="0.6">Rifleks</text>
-      <text x="-4" y="4" fill="#22224a" opacity="0.5">Rifleks</text>
-      <text x="0" y="0" fill="url(#neon-gradient)" stroke="#ffffff" stroke-width="2" stroke-opacity="0.5" class="glow-layer">Rifleks</text>
-      <text x="0" y="0" fill="none" stroke="url(#text-glow)" stroke-width="1.5" opacity="0.8" filter="url(#glow-strong)">Rifleks</text>
-      <text x="0" y="0" fill="url(#text-glow)" class="extreme-glow">Rifleks</text>
-      <text x="0" y="0" fill="#ffffff" opacity="0.08">Rifleks</text>
-    </g>
+  <rect width="800" height="500" fill="url(#bg-glow1)" rx="20" class="bg-orb" />
+  <rect width="800" height="500" fill="url(#bg-glow2)" rx="20" class="bg-orb" style="animation-delay: 4s;" />
+  <rect width="800" height="500" fill="url(#bg-glow3)" rx="20" class="bg-orb" style="animation-delay: 8s;" />
+  <rect width="800" height="500" fill="url(#neon-gradient)" opacity="0.015" rx="20" />
+
+  <g opacity="0.04">
+    <line x1="100" y1="0" x2="100" y2="500" stroke="#4facfe" stroke-width="0.5"/>
+    <line x1="200" y1="0" x2="200" y2="500" stroke="#4facfe" stroke-width="0.5"/>
+    <line x1="300" y1="0" x2="300" y2="500" stroke="#4facfe" stroke-width="0.5"/>
+    <line x1="400" y1="0" x2="400" y2="500" stroke="#4facfe" stroke-width="0.5"/>
+    <line x1="500" y1="0" x2="500" y2="500" stroke="#4facfe" stroke-width="0.5"/>
+    <line x1="600" y1="0" x2="600" y2="500" stroke="#4facfe" stroke-width="0.5"/>
+    <line x1="700" y1="0" x2="700" y2="500" stroke="#4facfe" stroke-width="0.5"/>
+    <line x1="0" y1="60" x2="800" y2="60" stroke="#4facfe" stroke-width="0.5"/>
+    <line x1="0" y1="120" x2="800" y2="120" stroke="#4facfe" stroke-width="0.5"/>
+    <line x1="0" y1="180" x2="800" y2="180" stroke="#4facfe" stroke-width="0.5"/>
+    <line x1="0" y1="240" x2="800" y2="240" stroke="#4facfe" stroke-width="0.5"/>
+    <line x1="0" y1="300" x2="800" y2="300" stroke="#4facfe" stroke-width="0.5"/>
+    <line x1="0" y1="360" x2="800" y2="360" stroke="#4facfe" stroke-width="0.5"/>
+    <line x1="0" y1="420" x2="800" y2="420" stroke="#4facfe" stroke-width="0.5"/>
   </g>
-  <rect x="100" y="60" width="600" height="2" fill="url(#neon-gradient)" opacity="0.4" class="scan-line" />
-  <rect x="100" y="170" width="600" height="2" fill="url(#neon-gradient)" opacity="0.4" class="scan-line" style="animation-direction: reverse; animation-duration: 5s;" />
-  <line x1="180" y1="200" x2="620" y2="200" class="cyber-line" />
-  <g filter="url(#glow-light)">
-    <path d="M 145 70 L 128 70 L 128 150 L 145 150" fill="none" stroke="#00f2fe" stroke-width="3" class="cyber-line-pulse" />
-    <path d="M 655 70 L 672 70 L 672 150 L 655 150" fill="none" stroke="#ff007f" stroke-width="3" class="cyber-line-pulse" />
+
+  <path d="M 80 40 L 80 80 L 120 80" fill="none" stroke="#00f2fe" stroke-width="1" opacity="0.2" class="slide-line" />
+  <path d="M 720 40 L 720 80 L 680 80" fill="none" stroke="#ff007f" stroke-width="1" opacity="0.2" class="slide-line" style="animation-delay: 2s;" />
+  <path d="M 80 460 L 80 420 L 120 420" fill="none" stroke="#00f2fe" stroke-width="1" opacity="0.2" class="slide-line" style="animation-delay: 1s;" />
+  <path d="M 720 460 L 720 420 L 680 420" fill="none" stroke="#ff007f" stroke-width="1" opacity="0.2" class="slide-line" style="animation-delay: 3s;" />
+
+  <g transform="translate(130, 400)">
+    <ellipse cx="0" cy="0" rx="25" ry="10" fill="none" stroke="#4facfe" stroke-width="0.8" opacity="0.15" transform="rotate(-20)" class="spin-slow" style="animation-duration: 20s;" />
+    <ellipse cx="0" cy="0" rx="35" ry="14" fill="none" stroke="#00f2fe" stroke-width="0.6" opacity="0.1" transform="rotate(-20)" class="spin-slow" style="animation-duration: 25s; animation-direction: reverse;" />
+    <circle cx="25" cy="0" r="2" fill="#00f2fe" opacity="0.2" class="glow-pulse" />
   </g>
-  <path d="M 100 40 L 100 55 L 115 55" fill="none" stroke="#00f2fe" stroke-width="2" opacity="0.4" class="slide-line" />
-  <path d="M 700 40 L 700 55 L 685 55" fill="none" stroke="#ff007f" stroke-width="2" opacity="0.4" class="slide-line" style="animation-delay: 0.8s;" />
-  <path d="M 100 200 L 100 185 L 115 185" fill="none" stroke="#00f2fe" stroke-width="2" opacity="0.4" class="slide-line" style="animation-delay: 1.2s;" />
-  <path d="M 700 200 L 700 185 L 685 185" fill="none" stroke="#ff007f" stroke-width="2" opacity="0.4" class="slide-line" style="animation-delay: 1.8s;" />
-  <circle cx="130" cy="55" r="3" fill="#00f2fe" opacity="0.3" class="glow-pulse" />
-  <circle cx="670" cy="185" r="3" fill="#ff007f" opacity="0.3" class="glow-pulse" style="animation-delay: 0.5s;" />
-  <circle cx="400" cy="200" r="2" fill="#ffffff" opacity="0.15" class="pulse-ring" />
-  <circle cx="400" cy="200" r="2" fill="#ffffff" opacity="0.15" class="pulse-ring" style="animation-delay: 0.8s;" />
-  <circle cx="400" cy="200" r="2" fill="#ffffff" opacity="0.15" class="pulse-ring" style="animation-delay: 1.6s;" />
-  <text x="190" y="218" font-family="'Courier New', monospace" font-size="15" fill="#4facfe" opacity="0.5" class="float-delayed">
+  <g transform="translate(670, 400)">
+    <ellipse cx="0" cy="0" rx="25" ry="10" fill="none" stroke="#ff6b6b" stroke-width="0.8" opacity="0.15" transform="rotate(20)" class="spin-slow" style="animation-duration: 22s;" />
+    <ellipse cx="0" cy="0" rx="35" ry="14" fill="none" stroke="#ff007f" stroke-width="0.6" opacity="0.1" transform="rotate(20)" class="spin-slow" style="animation-duration: 18s; animation-direction: reverse;" />
+    <circle cx="25" cy="0" r="2" fill="#ff007f" opacity="0.2" class="glow-pulse" style="animation-delay: 1s;" />
+  </g>
+
+  <circle cx="80" cy="50" r="2" class="particle" style="animation-delay: 0s; fill: #00f2fe;" />
+  <circle cx="720" cy="50" r="2" class="particle" style="animation-delay: 2s; fill: #ff007f;" />
+  <circle cx="150" cy="200" r="1.5" class="particle" style="animation-delay: 4s; fill: #7b2cbf;" />
+  <circle cx="650" cy="200" r="1.5" class="particle" style="animation-delay: 1s; fill: #f9ca24;" />
+  <circle cx="100" cy="300" r="1.5" class="particle" style="animation-delay: 3s; fill: #4facfe;" />
+  <circle cx="700" cy="300" r="1.5" class="particle" style="animation-delay: 5s; fill: #ff6b6b;" />
+  <circle cx="400" cy="30" r="1.5" class="particle" style="animation-delay: 2.5s; fill: #00ff88;" />
+  <circle cx="60" cy="150" r="1.2" class="particle" style="animation-delay: 1.5s; fill: #ff0844;" />
+  <circle cx="740" cy="150" r="1.2" class="particle" style="animation-delay: 3.5s; fill: #f9ca24;" />
+  <circle cx="200" cy="450" r="1.5" class="particle" style="animation-delay: 0.5s; fill: #4facfe;" />
+  <circle cx="600" cy="450" r="1.5" class="particle" style="animation-delay: 4.5s; fill: #ff6b6b;" />
+
+  <text x="20" y="40" font-family="'Courier New', monospace" font-size="10" fill="#00f2fe" opacity="0.15" class="code-rain" style="animation-delay: 0s;">print()</text>
+  <text x="20" y="65" font-family="'Courier New', monospace" font-size="8" fill="#ff007f" opacity="0.12" class="code-rain" style="animation-delay: 4s;">def</text>
+  <text x="755" y="40" font-family="'Courier New', monospace" font-size="9" fill="#7b2cbf" opacity="0.12" class="code-rain2" style="animation-delay: 2s;">class</text>
+  <text x="755" y="65" font-family="'Courier New', monospace" font-size="7" fill="#00ff88" opacity="0.1" class="code-rain2" style="animation-delay: 6s;">import</text>
+  <text x="20" y="200" font-family="'Courier New', monospace" font-size="8" fill="#f9ca24" opacity="0.1" class="code-rain" style="animation-delay: 8s;">while</text>
+  <text x="765" y="200" font-family="'Courier New', monospace" font-size="8" fill="#4facfe" opacity="0.1" class="code-rain" style="animation-delay: 10s;">for</text>
+  <text x="20" y="470" font-family="'Courier New', monospace" font-size="9" fill="#7b2cbf" opacity="0.1" class="code-rain" style="animation-delay: 3s;">lambda</text>
+  <text x="755" y="470" font-family="'Courier New', monospace" font-size="8" fill="#ff0844" opacity="0.08" class="code-rain2" style="animation-delay: 7s;">async</text>
+
+  <text x="40" y="235" font-family="'Courier New', monospace" font-size="12" fill="#4facfe" opacity="0.25" class="float-delayed">
     <tspan>while True:</tspan>
   </text>
-  <text x="210" y="238" font-family="'Courier New', monospace" font-size="13" fill="#00f2fe" opacity="0.35">
+  <text x="60" y="253" font-family="'Courier New', monospace" font-size="10" fill="#00f2fe" opacity="0.2">
     <tspan>pass</tspan>
     <tspan class="typing-cursor" fill="#ff007f">_</tspan>
   </text>
-  <text x="540" y="218" font-family="'Courier New', monospace" font-size="15" fill="#ff6b6b" opacity="0.4" class="float-delayed" style="animation-delay: 1.2s;">
+  <text x="555" y="235" font-family="'Courier New', monospace" font-size="12" fill="#ff6b6b" opacity="0.2" class="float-delayed" style="animation-delay: 3s;">
     <tspan>class Developer:</tspan>
   </text>
-  <text x="560" y="238" font-family="'Courier New', monospace" font-size="13" fill="#ff007f" opacity="0.3">
-    <tspan>pass  # &lt;-ladno</tspan>
+  <text x="575" y="253" font-family="'Courier New', monospace" font-size="10" fill="#ff007f" opacity="0.15">
+    <tspan>pass</tspan>
   </text>
-  <text x="0" y="12" font-family="'Courier New', monospace" font-size="16" fill="#00f2fe" opacity="0.15" class="bracket" style="animation-delay: 0s;">{</text>
-  <text x="790" y="12" font-family="'Courier New', monospace" font-size="16" fill="#ff007f" opacity="0.15" class="bracket" style="animation-delay: 0.6s;">}</text>
-  <text x="0" y="240" font-family="'Courier New', monospace" font-size="16" fill="#7b2cbf" opacity="0.15" class="bracket" style="animation-delay: 1.2s;">[</text>
-  <text x="790" y="240" font-family="'Courier New', monospace" font-size="16" fill="#f9ca24" opacity="0.15" class="bracket" style="animation-delay: 1.8s;">]</text>
-  <text x="338" y="28" font-family="'Courier New', monospace" font-size="12" fill="#00ff88" opacity="0.25" class="rotating-icon">
+
+  <text x="10" y="30" font-family="'Courier New', monospace" font-size="14" fill="#00f2fe" opacity="0.1" class="bracket" style="animation-delay: 0s;">{</text>
+  <text x="782" y="30" font-family="'Courier New', monospace" font-size="14" fill="#ff007f" opacity="0.1" class="bracket" style="animation-delay: 1.5s;">}</text>
+  <text x="10" y="260" font-family="'Courier New', monospace" font-size="14" fill="#7b2cbf" opacity="0.1" class="bracket" style="animation-delay: 3s;">[</text>
+  <text x="782" y="260" font-family="'Courier New', monospace" font-size="14" fill="#f9ca24" opacity="0.1" class="bracket" style="animation-delay: 4.5s;">]</text>
+
+  <text x="350" y="35" font-family="'Courier New', monospace" font-size="11" fill="#00ff88" opacity="0.15" class="rotating-icon">
     <tspan>🐍</tspan>
   </text>
-  <text x="462" y="28" font-family="'Courier New', monospace" font-size="12" fill="#ff6b6b" opacity="0.25" class="rotating-icon" style="animation-duration: 8s;">
+  <text x="450" y="35" font-family="'Courier New', monospace" font-size="11" fill="#ff6b6b" opacity="0.15" class="rotating-icon" style="animation-duration: 10s;">
     <tspan>⚡</tspan>
   </text>
-  <text x="345" y="215" font-family="'Courier New', monospace" font-size="10" fill="#4facfe" opacity="0.18" class="fade-cycle">
-    <tspan>__name__ == "__main__":</tspan>
-  </text>
-  <text x="365" y="230" font-family="'Courier New', monospace" font-size="10" fill="#4facfe" opacity="0.18" class="fade-cycle">
-    <tspan>asyncio.run(main())</tspan>
-  </text>
-  <rect x="15" y="15" width="3" height="230" fill="#00f2fe" opacity="0.15" class="fade-cycle" style="animation-duration: 4s;" />
-  <rect x="782" y="15" width="3" height="230" fill="#ff007f" opacity="0.15" class="fade-cycle" style="animation-duration: 4.5s;" />
-  <g transform="translate(400, 320)" text-anchor="middle" dominant-baseline="central">
-    <text x="0" y="0" font-family="'Segoe UI', 'Arial Black', sans-serif" font-size="44" font-weight="700" fill="url(#neon-gradient)" filter="url(#neon-text)" class="tech-label">Technologes</text>
-    <text x="0" y="0" font-family="'Segoe UI', 'Arial Black', sans-serif" font-size="44" font-weight="700" fill="none" stroke="url(#neon-gradient)" stroke-width="1.5" opacity="0.6" class="tech-label" style="animation-delay: 0.5s;">Technologes</text>
+
+  <g transform="translate(400, 120)" text-anchor="middle" dominant-baseline="central" font-family="'Impact', 'Arial Black', sans-serif" font-size="110" font-weight="900" letter-spacing="3">
+    <g class="text-container">
+      <text x="-8" y="8" fill="#0a0a1a" opacity="0.8">Rifleks</text>
+      <text x="-4" y="4" fill="#151530" opacity="0.6">Rifleks</text>
+      <text x="0" y="0" fill="url(#neon-gradient)" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.3" class="glow-layer">Rifleks</text>
+      <text x="0" y="0" fill="none" stroke="url(#text-glow)" stroke-width="1" opacity="0.6" filter="url(#glow-strong)">Rifleks</text>
+      <text x="0" y="0" fill="url(#text-glow)" class="extreme-glow">Rifleks</text>
+      <text x="0" y="0" fill="#ffffff" opacity="0.04">Rifleks</text>
+    </g>
   </g>
-  <rect x="180" y="340" width="440" height="2" fill="url(#neon-gradient)" opacity="0.3" class="scan-line" style="animation-duration: 6s;" />
+
+  <line x1="180" y1="175" x2="620" y2="175" class="cyber-line" style="stroke-dasharray: 30, 300; animation-duration: 6s;" />
+  <line x1="220" y1="182" x2="580" y2="182" class="cyber-line" style="stroke-dasharray: 20, 200; animation-duration: 7s; animation-delay: 1s; opacity: 0.3;" />
+
+  <rect x="100" y="80" width="600" height="1.5" fill="url(#neon-gradient)" opacity="0.2" class="scan-line" />
+  <rect x="100" y="170" width="600" height="1.5" fill="url(#neon-gradient)" opacity="0.2" class="scan-line" style="animation-direction: reverse; animation-duration: 6s; animation-delay: 1s;" />
+
+  <rect x="30" y="30" width="740" height="440" rx="12" fill="none" stroke="url(#neon-gradient)" stroke-width="0.8" opacity="0.08" />
+  <rect x="35" y="35" width="730" height="430" rx="10" fill="none" stroke="url(#neon-gradient)" stroke-width="0.5" opacity="0.05" />
+
+  <g transform="translate(400, 320)" text-anchor="middle" dominant-baseline="central">
+    <text x="0" y="0" font-family="'Segoe UI', 'Arial Black', sans-serif" font-size="38" font-weight="700" fill="url(#neon-gradient)" filter="url(#neon-text)" class="tech-label">Technologes</text>
+    <text x="0" y="0" font-family="'Segoe UI', 'Arial Black', sans-serif" font-size="38" font-weight="700" fill="none" stroke="url(#neon-gradient)" stroke-width="1" opacity="0.4" class="tech-label" style="animation-delay: 2s;">Technologes</text>
+  </g>
+  
+  <line x1="200" y1="340" x2="600" y2="340" class="cyber-line" style="stroke-dasharray: 40, 400; animation-duration: 5s; opacity: 0.3;" />
+
   <g transform="translate(400, 410)" text-anchor="middle" dominant-baseline="central">
     <g transform="translate(-110, 0)">
-      <rect x="-85" y="-32" width="170" height="64" rx="14" fill="none" stroke="#3776AB" stroke-width="3" opacity="0.6" class="badge-glow" />
-      <rect x="-85" y="-32" width="170" height="64" rx="14" fill="#3776AB" opacity="0.08" />
-      <text x="0" y="-4" font-family="'Segoe UI', monospace" font-size="30" font-weight="800" fill="url(#python-grad)" filter="url(#neon-text)">Python</text>
-      <text x="0" y="22" font-family="'Segoe UI', monospace" font-size="14" fill="#FFD43B" opacity="0.5">3.14</text>
+      <rect x="-80" y="-28" width="160" height="56" rx="12" fill="none" stroke="#3776AB" stroke-width="2" opacity="0.4" class="badge-glow" />
+      <rect x="-80" y="-28" width="160" height="56" rx="12" fill="#3776AB" opacity="0.05" />
+      <text x="0" y="-2" font-family="'Segoe UI', monospace" font-size="26" font-weight="800" fill="url(#python-grad)" filter="url(#neon-text)">Python</text>
+      <text x="0" y="20" font-family="'Segoe UI', monospace" font-size="12" fill="#FFD43B" opacity="0.35">3.14</text>
     </g>
     <g transform="translate(110, 0)">
-      <rect x="-85" y="-32" width="170" height="64" rx="14" fill="none" stroke="#00599C" stroke-width="3" opacity="0.6" class="badge-glow" style="animation-delay: 0.8s;" />
-      <rect x="-85" y="-32" width="170" height="64" rx="14" fill="#00599C" opacity="0.08" />
-      <text x="0" y="-4" font-family="'Segoe UI', monospace" font-size="30" font-weight="800" fill="url(#cpp-grad)" filter="url(#neon-text)">C++</text>
-      <text x="0" y="22" font-family="'Segoe UI', monospace" font-size="14" fill="#FFD43B" opacity="0.5">17</text>
+      <rect x="-80" y="-28" width="160" height="56" rx="12" fill="none" stroke="#00599C" stroke-width="2" opacity="0.4" class="badge-glow" style="animation-delay: 2s;" />
+      <rect x="-80" y="-28" width="160" height="56" rx="12" fill="#00599C" opacity="0.05" />
+      <text x="0" y="-2" font-family="'Segoe UI', monospace" font-size="26" font-weight="800" fill="url(#cpp-grad)" filter="url(#neon-text)">C++</text>
+      <text x="0" y="20" font-family="'Segoe UI', monospace" font-size="12" fill="#FFD43B" opacity="0.35">17</text>
     </g>
   </g>
-  <line x1="300" y1="390" x2="300" y2="445" class="cyber-line" style="stroke-dasharray: 20, 200; animation-duration: 4s;" />
-  <line x1="500" y1="390" x2="500" y2="445" class="cyber-line" style="stroke-dasharray: 20, 200; animation-duration: 4s; animation-delay: 0.6s;" />
-  <rect x="160" y="375" width="480" height="1.5" fill="url(#neon-gradient)" opacity="0.15" class="scan-line" style="animation-duration: 7s; animation-direction: alternate;" />
-  <text x="15" y="480" font-family="'Courier New', monospace" font-size="9" fill="#4facfe" opacity="0.2">// github.com/Rifleks</text>
-  <circle cx="400" cy="482" r="2" fill="#00f2fe" opacity="0.15" class="glow-pulse" style="animation-duration: 2s;" />
-  <circle cx="350" cy="482" r="1.5" fill="#4facfe" opacity="0.2" class="glow-pulse" style="animation-duration: 1.5s; animation-delay: 0.3s;" />
-  <circle cx="450" cy="482" r="1.5" fill="#ff007f" opacity="0.2" class="glow-pulse" style="animation-duration: 2.2s; animation-delay: 0.7s;" />
-  <g transform="translate(60, 280)">
-    <circle cx="0" cy="0" r="6" fill="none" stroke="#00f2fe" stroke-width="1.5" opacity="0.3" class="spin-slow" />
-    <circle cx="0" cy="0" r="10" fill="none" stroke="#4facfe" stroke-width="1" opacity="0.2" class="spin-slow" style="animation-duration: 15s; animation-direction: reverse;" />
-  </g>
-  <g transform="translate(740, 280)">
-    <circle cx="0" cy="0" r="6" fill="none" stroke="#ff007f" stroke-width="1.5" opacity="0.3" class="spin-slow" style="animation-duration: 8s;" />
-    <circle cx="0" cy="0" r="10" fill="none" stroke="#ff6b6b" stroke-width="1" opacity="0.2" class="spin-slow" style="animation-duration: 12s; animation-direction: reverse;" />
-  </g>
-  <g transform="translate(60, 280)">
-    <circle cx="0" cy="0" r="3" fill="#00f2fe" opacity="0.3" class="glow-pulse" style="animation-duration: 1.8s;" />
-  </g>
-  <g transform="translate(740, 280)">
-    <circle cx="0" cy="0" r="3" fill="#ff007f" opacity="0.3" class="glow-pulse" style="animation-duration: 2.1s;" />
-  </g>
-  <rect x="80" y="290" width="20" height="1" fill="#00f2fe" opacity="0.15" class="scan-line" style="animation-duration: 3s;" />
-  <rect x="700" y="290" width="20" height="1" fill="#ff007f" opacity="0.15" class="scan-line" style="animation-duration: 3.5s; animation-direction: reverse;" />
-  <circle cx="400" cy="280" r="4" fill="none" stroke="#f9ca24" stroke-width="1" opacity="0.2" class="pulse-ring" style="animation-duration: 3s;" />
-  <circle cx="400" cy="280" r="4" fill="none" stroke="#f9ca24" stroke-width="1" opacity="0.2" class="pulse-ring" style="animation-duration: 3s; animation-delay: 1s;" />
-  <circle cx="400" cy="280" r="4" fill="none" stroke="#f9ca24" stroke-width="1" opacity="0.2" class="pulse-ring" style="animation-duration: 3s; animation-delay: 2s;" />
+
+  <line x1="310" y1="390" x2="310" y2="445" class="cyber-line" style="stroke-dasharray: 15, 150; animation-duration: 5s; opacity: 0.2;" />
+  <line x1="490" y1="390" x2="490" y2="445" class="cyber-line" style="stroke-dasharray: 15, 150; animation-duration: 5s; animation-delay: 1.5s; opacity: 0.2;" />
+
+  <text x="400" y="478" font-family="'Courier New', monospace" font-size="9" fill="#4facfe" opacity="0.15" text-anchor="middle">github.com/Rifleks</text>
+
+  <circle cx="400" cy="478" r="1.5" fill="#00f2fe" opacity="0.15" class="glow-pulse" style="animation-duration: 3s;" />
+  <circle cx="370" cy="478" r="1" fill="#4facfe" opacity="0.12" class="glow-pulse" style="animation-duration: 2.5s; animation-delay: 1s;" />
+  <circle cx="430" cy="478" r="1" fill="#ff007f" opacity="0.12" class="glow-pulse" style="animation-duration: 2.5s; animation-delay: 2s;" />
+
+  <circle cx="400" cy="175" r="4" fill="none" stroke="#f9ca24" stroke-width="0.8" opacity="0.15" class="pulse-ring" />
+  <circle cx="400" cy="175" r="4" fill="none" stroke="#f9ca24" stroke-width="0.8" opacity="0.15" class="pulse-ring" style="animation-delay: 1.5s;" />
+
+  <path d="M 35 35 L 55 35 L 55 38 L 38 38 L 38 55 L 35 55 Z" fill="#00f2fe" opacity="0.08" />
+  <path d="M 765 35 L 745 35 L 745 38 L 762 38 L 762 55 L 765 55 Z" fill="#ff007f" opacity="0.08" />
+  <path d="M 35 465 L 55 465 L 55 462 L 38 462 L 38 445 L 35 445 Z" fill="#00f2fe" opacity="0.08" />
+  <path d="M 765 465 L 745 465 L 745 462 L 762 462 L 762 445 L 765 445 Z" fill="#ff007f" opacity="0.08" />
 </svg>

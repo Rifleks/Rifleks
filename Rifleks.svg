@@ -237,10 +237,10 @@
         will-change: transform;
       }
       @keyframes bgOrb {
-        0%, 100% { transform: translate(0, 0) scale(1); }
-        25% { transform: translate(20px, -15px) scale(1.1); }
-        50% { transform: translate(-10px, 10px) scale(0.9); }
-        75% { transform: translate(15px, -5px) scale(1.05); }
+        0%, 100% { scale(1.0); }
+        25% { scale(1.2); }
+        50% { scale(1.1); }
+        75% { scale(1.3); }
       }
       .line-flow {
         animation: lineFlow 6s linear infinite;
@@ -384,7 +384,7 @@
   <line x1="310" y1="390" x2="310" y2="445" class="cyber-line" style="stroke-dasharray: 15, 150; animation-duration: 5s; opacity: 0.2;" />
   <line x1="490" y1="390" x2="490" y2="445" class="cyber-line" style="stroke-dasharray: 15, 150; animation-duration: 5s; animation-delay: 1.5s; opacity: 0.2;" />
 
-  <text x="400" y="478" font-family="'Courier New', monospace" font-size="9" fill="#4facfe" opacity="0.15" text-anchor="middle">github.com/Rifleks</text>
+  <text x="400" y="485" font-family="'Courier New', monospace" font-size="9" fill="#4facfe" opacity="0.15" text-anchor="middle">github.com/Rifleks</text>
 
   <circle cx="400" cy="478" r="1.5" fill="#00f2fe" opacity="0.15" class="glow-pulse" style="animation-duration: 3s;" />
   <circle cx="370" cy="478" r="1" fill="#4facfe" opacity="0.12" class="glow-pulse" style="animation-duration: 2.5s; animation-delay: 1s;" />
